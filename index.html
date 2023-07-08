@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Summer Percentage Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        h1 {
+            color: #555;
+        }
+
+        #result {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Summer Percentage Calculator</h1>
+    <p>Calculate the percentage of summer that has passed.</p>
+
+	<div id="result"></div>
+    <script>
+        function calculatePercentage() {
+            var summerStart = new Date('June 21, 2023');
+            var summerEnd = new Date('September 22, 2023');
+            var currentDate = new Date();
+
+            var totalDays = Math.ceil((summerEnd - summerStart) / (1000 * 60 * 60 * 24));
+            var daysPassed = Math.ceil((currentDate - summerStart) / (1000 * 60 * 60 * 24));
+
+            var percentage = (daysPassed / totalDays) * 100;
+
+            document.getElementById('result').innerHTML = 'Percentage of summer passed: ' + percentage.toFixed(2) + '%';
+        }
+
+        calculatePercentage();
+    </script>
+
+    
+</body>
+</html>
