@@ -36,7 +36,7 @@
 </head>
 <body>
     <h1>Summer Percentage Calculator</h1>
-    
+  
 	<div id="result"></div>
     <script>
         function calculatePercentage() {
@@ -49,8 +49,17 @@
             var daysLeft = totalDays - daysPassed;
 
             var percentage = (daysPassed / totalDays) * 100;
-
-            document.getElementById('result').innerHTML = 'Percentage of summer passed: ' + percentage.toFixed(2) + '%<br>' +
+            
+            //hour calcualtions
+            
+            var oneDay = (1/totalDays)*100
+            var currentHour = currentDate.getHours()
+            var percentageOfDay = currentHour/24
+            var percentagePerDay = oneDay * percentageOfDay
+            
+            var total = percentage+percentagePerDay
+						
+            document.getElementById('result').innerHTML = 'Percentage of summer passed: ' + total.toFixed(2) + '%<br>' +
                                                           'Days passed: ' + daysPassed + '<br>' +
                                                           'Days left: ' + daysLeft;
         }
