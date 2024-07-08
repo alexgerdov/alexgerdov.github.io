@@ -67,14 +67,14 @@
 
 			var total = daysPercentage + (ratioOfSecondsThatPassed * percentageOfOFullDay)
 						
-            document.getElementById('result').innerHTML = 'Percentage of summer passed: ' + total.toFixed(5) + '%<br>' +
+            document.getElementById('result').innerHTML = 'Percentage of summer passed: ' + total.toFixed(2) + '%<br>' +
                                                           'Days passed: ' + daysPassed + '<br>' +
                                                           'Days left: ' + daysLeft;
 														  
         }
 
         calculatePercentage();
-		setInterval(calculatePercentage, 1000);
+	//	setInterval(calculatePercentage, 1000);
     </script>
     
 </body>
