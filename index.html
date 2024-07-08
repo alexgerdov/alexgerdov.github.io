@@ -13,7 +13,7 @@
             color: #555;
         }
 
-        #result {
+        div {
             font-size: 24px;
             margin-top: 20px;
         }
@@ -51,25 +51,31 @@
             var daysPassed = Math.ceil((currentDate - summerStart) / (1000 * 60 * 60 * 24));
             var daysLeft = totalDays - daysPassed;
 
-            var percentage = (daysPassed / totalDays) * 100;
+            var daysPercentage = (daysPassed / totalDays) * 100;
             
-            //hour calcualtions
-            
-            var oneDay = (1/totalDays)*100
-            var currentHour = currentDate.getHours()
-            var percentageOfDay = currentHour/24
-            var percentagePerDay = oneDay * percentageOfDay
-            
-            var total = percentage+percentagePerDay
+			//one day in percentage
+            var percentageOfOFullDay = (1/totalDays) * 100
+			
+			//second calculation 
+			
+			var totalSecondsInADay = 86400;
+			var secondsInHours = currentDate.getHours() * 60 * 60
+			var secondsInMinutes = currentDate.getHours() * 60
+			var currentSeconds = currentDate.getSeconds()
+			var totalSecondsThatPassed = secondsInHours + secondsInMinutes + currentSeconds
+			var ratioOfSecondsThatPassed = totalSecondsThatPassed/86400
+
+			var total = daysPercentage + (ratioOfSecondsThatPassed * percentageOfOFullDay)
 						
-            document.getElementById('result').innerHTML = 'Percentage of summer passed: ' + total.toFixed(2) + '%<br>' +
+            document.getElementById('result').innerHTML = 'Percentage of summer passed: ' + total.toFixed(5) + '%<br>' +
                                                           'Days passed: ' + daysPassed + '<br>' +
                                                           'Days left: ' + daysLeft;
+														  
         }
 
         calculatePercentage();
+		setInterval(calculatePercentage, 1000);
     </script>
-
     
 </body>
 </html>
